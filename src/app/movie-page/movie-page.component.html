@@ -1,0 +1,49 @@
+<!-- HTML structure -->
+
+<div class="">
+
+  <div *ngIf="movie; else loading" class="movie-details flex">
+    <div>
+      
+      <div class="details">
+        <h1>{{ movie.title }}</h1>
+        <p *ngIf="movie.genres?.length">
+          <strong>Genre:</strong>
+          <span *ngFor="let genre of movie.genres; let i = index">
+            {{ genre.name }}<span *ngIf="i < movie.genres.length - 1">, </span>
+          </span>
+        </p>
+        <p><strong>Rating:</strong> {{ movie.vote_average }}</p>
+      </div>
+      
+      <div class="cast">
+        <h2>Cast</h2>
+      <ul>
+        <li *ngFor="let actor of cast">
+          <span (click)="getPerson(actor.cast_id)" class="cast_actor">
+            {{ actor.name }} as {{ actor.character }}
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+    <div>
+      <img
+        [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+        alt="image"
+        width="500"
+      />
+      <div *ngIf="movie.trailer" class="trailer">
+        <h2>Trailer</h2>
+        <!-- <p>Click on the image to watch the trailer.</p> -->
+        <button (click)="watchTrailer(movie.trailer)">Watch Trailer</button>
+        <!-- <iframe width="560" height="315" [src]="'https://www.youtube.com/embed/' + movie.trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div class="loading">Loading movie details...</div>
+</ng-template>

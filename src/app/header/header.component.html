@@ -1,0 +1,27 @@
+<div class="header-container">
+  <nav class="navbar">
+    <div class="logo">
+      <img src="assets/logo.png" alt="Kaz Software Logo" />
+      <span> TMDB App By Tanvir Ahmed Khan </span>
+    </div>
+    <ul class="nav-links">
+      <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+      <li><a routerLink="/trending" routerLinkActive="active">Trending</a></li>
+      <li><a routerLink="/movies" routerLinkActive="active">Movies</a></li>
+      <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+    </ul>
+    <div class="search-bar">
+      <select [(ngModel)]="selectedCategory" (change)="onCategoryChange($event.target)">
+        <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+      </select>
+      
+      <p-autoComplete
+        class="autocomplete"
+        [(ngModel)]="searchTerm"
+        [suggestions]="suggestions"
+        (completeMethod)="onChange($event)"
+      />
+      <button type="button" (click)="onSearch()">Search</button>
+    </div>
+  </nav>
+</div>

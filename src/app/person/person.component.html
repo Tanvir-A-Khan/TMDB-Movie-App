@@ -1,0 +1,21 @@
+<div *ngIf="person" class="person-details">
+    <h1>{{ person.name }}</h1>
+    <p>{{ person.biography }}</p>
+    <p><strong>Born:</strong> {{ person.birthday }} ({{ person.place_of_birth }})</p>
+    <p *ngIf="person.deathday"><strong>Died:</strong> {{ person.deathday }}</p>
+  
+    <div *ngIf="movies">
+
+      <h2>Known For</h2>
+      <ul>
+        <li *ngFor="let movie of movies">
+          <span class="onClickEffect" (click)="getMovie(movie)">
+            {{ movie.title }} ({{ movie.release_date | date: 'mediumDate' }})
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div *ngIf="!person" class="loading">Person not available. Loading...</div>
+  

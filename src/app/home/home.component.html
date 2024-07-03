@@ -1,0 +1,74 @@
+<div class="filter">
+  <label for="options">Filter by Genre:</label>
+  <select
+    id="options"
+    [(ngModel)]="selectedOption"
+    (change)="onSelect(selectedOption)"
+  >
+    <option *ngFor="let option of options" [ngValue]="option">
+      {{ option.name }}
+    </option>
+  </select>
+  
+  <div>
+    <label for="certifications">Certifications:</label>
+    <select
+      id="certifications"
+      [(ngModel)]="selectedCertification"
+      (change)="selectCertification(selectedCertification)"
+    >
+      <option *ngFor="let certificate of certifications" [ngValue]="certificate">
+        {{ certificate.certification }}
+      </option>
+    </select>
+  </div>
+  
+  <div>
+    <label for="sortPopularity">Sort by Popularity:</label>
+    <select
+      id="sortPopularity"
+      [(ngModel)]="selectedSortOrder"
+      (change)="onSortChange(selectedSortOrder)"
+    >
+      <option [ngValue]="'popularity.asc'">Ascending</option>
+      <option [ngValue]="'popularity.desc'">Descending</option>
+    </select>
+  </div>
+
+  <!-- <div>
+    <label for="year">Filter by Year:</label>
+    <select
+      id="year"
+      [(ngModel)]="selectedYear"
+      (change)="onYearChange(selectedYear)"
+    >
+      <option *ngFor="let year of years" [ngValue]="year">
+        {{ year }}
+      </option>
+    </select>
+  </div> -->
+
+  <button (click)="clearFilters()">Clear Filters</button>
+</div>
+
+<div class="movie-list">
+  <div *ngFor="let movie of movies" class="movie-item">
+    <div (click)="getMovie(movie.id)">
+      <img
+        [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+        alt="{{ movie.title }}"
+      />
+      <h4>{{ movie.title }}</h4>
+      <p>Release: {{ movie.release_date }}</p>
+    </div>
+  </div>
+</div>
+
+<div>
+  <p-paginator
+    (onPageChange)="onPageChange($event)"
+    [first]="first"
+    [rows]="rows"
+    [totalRecords]="totalRecords"
+  ></p-paginator>
+</div>

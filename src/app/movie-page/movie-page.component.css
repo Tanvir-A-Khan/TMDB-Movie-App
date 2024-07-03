@@ -1,0 +1,90 @@
+/* CSS styles */
+.movie-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .details {
+    margin-bottom: 20px;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  p {
+    font-size: 16px;
+    margin: 5px 0;
+  }
+  
+  .cast {
+    margin-bottom: 20px;
+  }
+  
+  .cast h2 {
+    font-size: 20px;
+    margin: 10px 0;
+  }
+  
+  .cast ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .cast li {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+  
+  .trailer {
+    margin-bottom: 20px;
+  }
+  
+  .trailer h2 {
+    font-size: 20px;
+    margin: 10px 0;
+  }
+  
+  .loading {
+    font-size: 18px;
+    text-align: center;
+    padding: 20px;
+    color: #666;
+  }
+  
+  .cast_actor{
+    text-decoration-style: underline;
+  }
+
+  .cast_actor:hover{
+    cursor: pointer;
+    text-decoration-style: underline;
+    background: gold;
+  }
+  .flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* align-items: center; */
+  }
+
+  .trailer button{
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+
+  .trailer button:hover{
+    background: black;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+  }

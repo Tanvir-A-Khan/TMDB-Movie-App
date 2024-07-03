@@ -1,0 +1,14 @@
+<div class="movie-list">
+  <div *ngFor="let movie of movies" class="movie-item">
+    <img
+      [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+      alt="{{ movie.title }}"
+    />
+    <h4>{{ movie.title ? movie.title : movie.name }}</h4>
+    <p>
+      Release:{{
+        movie.release_date ? movie.release_date : " Will be announced soon"
+      }}
+    </p>
+  </div>
+</div>
